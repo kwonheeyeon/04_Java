@@ -32,4 +32,5 @@ public interface MemberDao{ // + 직렬화
 	 * @throws IOException
 	 */
 	void saveFile() throws IOException;
+
 }
