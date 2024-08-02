@@ -10,5 +10,4 @@ public interface TodoListDao {
 	List<Todo> getTodoList();
 
 	void saveFile() throws IOException;
-
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import dto.Todo;
 
 public class TodoListDaoImpl implements TodoListDao{
-	private final String FILE_PATH = "/io_test/todo.dat";
+	private final String FILE_PATH = "/io_test/todoList.dat";
 	
 	private List<Todo> todoList = null;
 	
