@@ -9,7 +9,9 @@ public interface TodoListService {
 
 	List<Todo> getTodoList();
 
-	int checkComplete();
+	int countComplete();
+	
+	String formattedDateTime(int index);
 	
 	void todoAdd(String title, String detail) throws IOException;
 	
@@ -18,8 +20,6 @@ public interface TodoListService {
 	void todoComplete(int index) throws IOException;
 
 	void todoUpdate(int index, String title, String detail) throws IOException;
-
-	String formattedDateTime(int index);
 
 	void todoDelete(int index) throws IOException;
 

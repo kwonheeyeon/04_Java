@@ -18,22 +18,28 @@ public class TodoListServiceImpl implements TodoListService{
 		dao = new TodoListDaoImpl();
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	
 	@Override
 	public List<Todo> getTodoList() {
 		return dao.getTodoList();
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	
 	@Override
-	public int checkComplete() {
-		int checkComplete = 0;
+	public int countComplete() {
+		int countComplete = 0;
 		
 		for(Todo todo : dao.getTodoList()) {
 			if(todo.isComplete() == true)
-				checkComplete++;
+				countComplete++;
 		}
 		
-		return checkComplete;
+		return countComplete;
 	}
+	
+	// --------------------------------------------------------------------------------------------
 	
 	@Override
 	public String formattedDateTime(int index) {
@@ -45,6 +51,8 @@ public class TodoListServiceImpl implements TodoListService{
 		return formattedDateTime;
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	
 	@Override
 	public void todoAdd(String title, String detail) throws IOException {
 		LocalDateTime regDate = LocalDateTime.now();
@@ -55,11 +63,15 @@ public class TodoListServiceImpl implements TodoListService{
 		dao.saveFile();
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	
 	@Override
 	public char checkComplete(int index) {
 		if(dao.getTodoList().get(index).isComplete() == true) return 'O';
 		else return 'X';
 	}
+	
+	// --------------------------------------------------------------------------------------------
 	
 	@Override
 	public void todoComplete(int index) throws IOException {
@@ -73,6 +85,8 @@ public class TodoListServiceImpl implements TodoListService{
 		dao.saveFile();
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	
 	@Override
 	public void todoUpdate(int index, String title, String detail) throws IOException {
 		Todo todo = dao.getTodoList().get(index);
@@ -82,6 +96,8 @@ public class TodoListServiceImpl implements TodoListService{
 		
 		dao.saveFile();
 	}
+	
+	// --------------------------------------------------------------------------------------------
 	
 	@Override
 	public void todoDelete(int index) throws IOException {

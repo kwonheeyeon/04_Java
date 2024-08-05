@@ -36,11 +36,15 @@ public class TodoListDaoImpl implements TodoListDao{
 		}
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	
 	@Override
 	public List<Todo> getTodoList() {
 		
 		return todoList;
 	}
+	
+	// --------------------------------------------------------------------------------------------
 	
 	@Override
 	public void saveFile() throws IOException{

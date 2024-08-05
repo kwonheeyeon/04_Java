@@ -32,10 +32,8 @@ public class TodoListView {
 		
 		do {
 			try {
-				// 메뉴 출력 후 입력된 번호를 반환 받기
 				input = selectMenu();
 				
-				// 선택된 메뉴 번호에 따라 case 선택
 				switch(input) {
 				case 1: todoListFullView(); break;
 				case 2: todoDetailView(); break;
@@ -93,7 +91,7 @@ public class TodoListView {
 			return;
 		}
 		
-		int countComplete = service.checkComplete();
+		int countComplete = service.countComplete();
 		
 		System.out.printf("\n[완료된 Todo 수 / 전체 Todo 수 : %d / %d]\n", countComplete, todoList.size());
 		
@@ -108,7 +106,7 @@ public class TodoListView {
 			System.out.printf(" [%d]       %s         (%c)          %s\n", i, time, complete, todoList.get(i).getTitle());
 		}
 		
-		System.out.println("=====================================================================");
+		System.out.println("=====================================================================\n");
 	}
 	
 	// --------------------------------------------------------------------------------------------
@@ -122,7 +120,7 @@ public class TodoListView {
 		List<Todo> todoList = service.getTodoList();
 		
 		if(index < 0 || index >= todoList.size()) {
-			System.out.println("\n### 입력한 인덱스 번호에 할 일(Todo)이 존재하지 않습니다 ###");
+			System.out.println("\n### 입력한 인덱스 번호에 할 일(Todo)이 존재하지 않습니다 ###\n");
 			return;
 		}
 		
@@ -154,7 +152,7 @@ public class TodoListView {
 			String input = br.readLine();
 			
 			if(input.equals("!wq")) {
-				System.out.printf("[%d] 인덱스에 추가되었습니다", todoList.size());
+				System.out.printf("\n[%d] 인덱스에 추가되었습니다\n\n", todoList.size());
 				break;
 			}
 			
@@ -177,13 +175,13 @@ public class TodoListView {
 		List<Todo> todoList = service.getTodoList();
 		
 		if(index < 0 || index >= todoList.size()) {
-			System.out.println("\n### 입력한 인덱스에 Todo가 존재하지 않습니다 ###");
+			System.out.println("\n### 입력한 인덱스에 Todo가 존재하지 않습니다 ###\n");
 			return;
 		}
 		
 		service.todoComplete(index);
 		
-		System.out.println("\n[변경 되었습니다]");
+		System.out.println("\n[변경 되었습니다]\n");
 	}
 	
 	// --------------------------------------------------------------------------------------------
@@ -197,7 +195,7 @@ public class TodoListView {
 		List<Todo> todoList = service.getTodoList();
 		
 		if(index < 0 || index >= todoList.size()) {
-			System.out.println("\n### 입력한 인덱스에 Todo가 존재하지 않습니다 ###");
+			System.out.println("\n### 입력한 인덱스에 Todo가 존재하지 않습니다 ###\n");
 			return;
 		}
 		
@@ -226,7 +224,7 @@ public class TodoListView {
 			String input = br.readLine();
 			
 			if(input.equals("!wq")) {
-				System.out.println("\n[수정 되었습니다]");
+				System.out.println("\n[수정 되었습니다]\n");
 				break;
 			}
 			
@@ -249,12 +247,12 @@ public class TodoListView {
 		List<Todo> todoList = service.getTodoList();
 		
 		if(index < 0 || index >= todoList.size()) {
-			System.out.println("\n### 입력한 인덱스에 Todo가 존재하지 않습니다 ###");
+			System.out.println("\n### 입력한 인덱스에 Todo가 존재하지 않습니다 ###\n");
 			return;
 		}
 		
 		service.todoDelete(index);
 		
-		System.out.println("\n[삭제 되었습니다]");
+		System.out.println("\n[삭제 되었습니다]\n");
 	}
 }
